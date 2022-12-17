@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/okieraised/xelnaga/internal"
+	"github.com/okieraised/xelnaga/internal/constant"
 	"github.com/okieraised/xelnaga/pkg/api"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -37,7 +37,7 @@ func main() {
 
 	<-exitSignal
 	logger.Info("Received termination signal. Attempting to stop server in 5 seconds")
-	ctx, cancel := context.WithTimeout(context.Background(), internal.TerminationTimeout)
+	ctx, cancel := context.WithTimeout(context.Background(), constant.TerminationTimeout)
 	defer cancel()
 
 	err := apiServer.Shutdown(ctx)

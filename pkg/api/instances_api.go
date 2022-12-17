@@ -3,7 +3,7 @@ package api
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/okieraised/xelnaga/internal"
+	"github.com/okieraised/xelnaga/internal/constant"
 	"go.uber.org/zap"
 )
 
@@ -24,8 +24,8 @@ func (r *instancesAPIRoute) init() {
 	instancesRoute := r.engine.Group("/instances")
 
 	instancesRoute.GET("", r.listInstances)
-	instancesRoute.GET(fmt.Sprintf("/%s", internal.SOPInstanceUID), r.getInstance)
-	instancesRoute.DELETE(fmt.Sprintf("/%s", internal.SOPInstanceUID), r.getInstance)
+	instancesRoute.GET(fmt.Sprintf("/%s", constant.SOPInstanceUID), r.getInstance)
+	instancesRoute.DELETE(fmt.Sprintf("/%s", constant.SOPInstanceUID), r.getInstance)
 
 }
 
