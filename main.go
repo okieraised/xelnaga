@@ -21,7 +21,7 @@ var (
 
 func main() {
 	exitSignal := make(chan os.Signal, 1)
-	signal.Notify(exitSignal, os.Interrupt, syscall.SIGTERM, syscall.SIGINT, syscall.SIGKILL, syscall.SIGQUIT)
+	signal.Notify(exitSignal, syscall.SIGTERM, syscall.SIGINT, syscall.SIGKILL, syscall.SIGQUIT) // os.Interrupt,
 
 	apiServer := &http.Server{
 		Addr:    "0.0.0.0:11104",

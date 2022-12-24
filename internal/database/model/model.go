@@ -4,7 +4,7 @@ import (
 	"github.com/google/uuid"
 )
 
-type ObjectIdentifier struct {
+type DCMObject struct {
 	ID                uuid.UUID `gorm:"->"`
 	StudyInstanceUID  string    `gorm:"->,unique,not null"`
 	SeriesInstanceUID string    `gorm:"->,unique,not null"`
