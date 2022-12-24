@@ -61,3 +61,11 @@ func (c *s3ClientWrapper) GetObject(bucketName string, objectName string, opts m
 	}
 	return obj, nil
 }
+
+func (c *s3ClientWrapper) RemoveObject(bucketName string, objectName string, opts minio.RemoveObjectOptions) error {
+	err := c.client.RemoveObject(context.Background(), bucketName, objectName, opts)
+	if err != nil {
+		return err
+	}
+	return nil
+}
